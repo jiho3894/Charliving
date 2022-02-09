@@ -22,7 +22,6 @@ export const getMovieUpcoming = async (number: number) => {
     `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&page=${number}`
   );
   const json = await response.json();
-  console.log(json);
   return json;
 };
 
