@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const bodyVariants = {
   top: {
-    backgroundColor: "rgba(0, 0, 0, 0.05)",
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
   },
   scroll: {
     backgroundColor: "rgba(0, 0, 0, 0.7)",
@@ -29,30 +29,30 @@ const Header = () => {
       variants={bodyVariants}
       initial="top"
       animate={scrollAnimation}
-      className="w-full h-20 fixed flex items-center text-white z-20"
+      className="w-full h-20 fixed flex items-center justify-center text-white z-20"
     >
-      <div className="ml-5 sm:space-x-6 flex items-center sm:ml-12">
+      <div className="w-[95%]  flex items-center">
         <Link to="/">
-          <span className=" mr-10 font-bold text-base sm:text-4xl">
+          <span className=" mr-10 font-bold text-lg sm:text-4xl">
             Charliving
           </span>
         </Link>
-        <Link to="/Air" className="flex items-center">
+        <nav className="flex items-center">
           <div className="w-8 h-8 bg-no-repeat bg-left bg-[url('https://www.tving.com/img/icon_menu_live.svg')]"></div>
           <span className="text-gray-400 hover:text-gray-200 mr-5 font-bold sm:text-xl  text-xs">
             실시간
           </span>
-        </Link>
-        <Link to="/TV">
+        </nav>
+        <nav>
           <span className="text-gray-400 hover:text-gray-200 mr-5 font-bold sm:text-xl text-xs">
             TV프로그램
           </span>
-        </Link>
-        <Link to="/영화">
+        </nav>
+        <nav>
           <span className="text-gray-400 hover:text-gray-200 mr-5 font-bold sm:text-xl text-xs">
             영화
           </span>
-        </Link>
+        </nav>
       </div>
     </motion.div>
   );

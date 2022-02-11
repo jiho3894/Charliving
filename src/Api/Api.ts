@@ -1,8 +1,7 @@
-const API_KEY = "9594c9ccbbcc42235a2072ad7d3699ae"; // TMDB API Key
+const API_Key = process.env.REACT_APP_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3"; // Base URL
 
 interface IMovie {
-  // Array type 내부 key type 선언
   id: number;
   backdrop_path: string;
   poster_path: string;
@@ -13,16 +12,31 @@ interface IMovie {
 }
 
 export interface IGetMoviesResult {
-  // Result Array type 선언
   results: IMovie[];
+}
+
+export interface IGetMoviesDetail {
+  adult: boolean;
+  backdrop_path: string;
+  id: number;
+  original_title: string;
+  overview: string;
+  poster_path: string;
+  runtime: number;
 }
 
 export const getMovieUpcoming = async (number: number) => {
   const response = await fetch(
-    `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&page=${number}`
+    `${BASE_URL}/movie/upcoming?api_key=${API_Key}&page=${number}`
   );
   const json = await response.json();
   return json;
 };
 
-getMovieUpcoming(1);
+export const getMovieDetail = async (moiveID: number) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${moiveID}?api_key=${API_Key}`
+  );
+  const json = await response.json();
+  return json;
+};

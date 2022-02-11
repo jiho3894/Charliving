@@ -10,6 +10,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const rowVars = {
   start: {
@@ -29,9 +30,14 @@ const Home = () => {
   const onClick = (e: React.MouseEvent<HTMLInputElement>) => {
     let num = Number((e.currentTarget as HTMLInputElement).value);
     setIndex(num);
-    console.log(num);
   };
-
+  const history = useNavigate();
+  const [mouseMoved, setMouseMoved] = useState(false);
+  const handleClick = (id: number) => {
+    if (!mouseMoved) {
+      history(`/contents/${id}`);
+    }
+  };
   const increaseIndex = () => {
     if (data) {
       const total = 4;
@@ -141,19 +147,23 @@ const Home = () => {
               <Slider className="w-full h-full flex " {...settings}>
                 {data?.results.slice(6).map((movie) => {
                   return (
-                    <Link key={movie.id} to={`/contents/${movie.id}`}>
-                      <div className="flex w-full h-[360px] relative top-4">
-                        <motion.img
-                          className="w-[225px] rounded-xl h-[350px]"
-                          src={makeImagePath(
-                            movie.poster_path === null
-                              ? NothingPoster
-                              : movie.poster_path
-                          )}
-                          whileHover={{ y: -10, transition: { delay: 0.1 } }}
-                        />
-                      </div>
-                    </Link>
+                    <div
+                      onMouseMove={() => setMouseMoved(true)}
+                      onMouseDown={() => setMouseMoved(false)}
+                      onMouseUp={() => handleClick(movie.id)}
+                      key={movie.id}
+                      className="flex w-full h-[360px] relative top-4"
+                    >
+                      <motion.img
+                        className="w-[225px] rounded-xl h-[350px]"
+                        src={makeImagePath(
+                          movie.poster_path === null
+                            ? NothingPoster
+                            : movie.poster_path
+                        )}
+                        whileHover={{ y: -10, transition: { delay: 0.1 } }}
+                      />
+                    </div>
                   );
                 })}
               </Slider>
