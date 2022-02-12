@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { getMovieDetail, IGetMoviesDetail } from "../Api/Api";
 import { makeImagePath, NothingPoster } from "../Api/utils";
+import Footer from "./Footer";
 
 const Contents = () => {
   const moiveID = useParams();
@@ -15,8 +16,8 @@ const Contents = () => {
         "Loading"
       ) : (
         <React.Fragment>
-          <div
-            className="w-full h-screen  brightness-[.1]  bg-cover opacity-80"
+          <main
+            className="w-full h-screen brightness-[.1] bg-cover opacity-80"
             style={{
               backgroundImage: `url(${makeImagePath(
                 data?.backdrop_path === undefined
@@ -24,8 +25,8 @@ const Contents = () => {
                   : data?.backdrop_path
               )})`,
             }}
-          ></div>
-          <div className="flex justify-center absolute top-20 z-10 w-full h-[70%] ">
+          ></main>
+          <main className="flex justify-center absolute top-20 z-10 w-full h-[70%] ">
             <div className="border-b-2 pb-10 border-solid border-gray-500 w-[95%] xl:h-[70vh] h-full flex flex-col xl:flex-row-reverse  items-center">
               <div
                 className="w-screen xl:w-1/4 xl:ml-[50vh] xl:h-3/4 relative h-2/5 bg-cover bg-center xl:shadow-2xl rounded-lg"
@@ -77,7 +78,8 @@ const Contents = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </main>
+          <Footer />
         </React.Fragment>
       )}
     </React.Fragment>

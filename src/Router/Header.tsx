@@ -37,12 +37,12 @@ const Header = () => {
             Charliving
           </span>
         </Link>
-        <nav className="flex items-center">
+        <Link to="/air" className="flex items-center">
           <div className="w-8 h-8 bg-no-repeat bg-left bg-[url('https://www.tving.com/img/icon_menu_live.svg')]"></div>
           <span className="text-gray-400 hover:text-gray-200 mr-5 font-bold sm:text-xl  text-xs">
             실시간
           </span>
-        </nav>
+        </Link>
         <nav>
           <span className="text-gray-400 hover:text-gray-200 mr-5 font-bold sm:text-xl text-xs">
             TV프로그램
