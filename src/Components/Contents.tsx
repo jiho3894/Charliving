@@ -1,15 +1,19 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getMovieDetail, IGetMoviesDetail } from "../Api/Api";
 import { makeImagePath, NothingPoster } from "../Api/utils";
 import Footer from "./Footer";
 
 const Contents = () => {
-  const moiveID = useParams();
+  const movieID = useParams();
+  const navigate = useNavigate();
   const { isLoading, data } = useQuery<IGetMoviesDetail>("Movie-Detail", () =>
-    getMovieDetail(Number(moiveID.id))
+    getMovieDetail(Number(movieID.id))
   );
+  const onClickTrailer = () => {
+    navigate(`/contents/trailer/${movieID.id}`);
+  };
   return (
     <React.Fragment>
       {isLoading ? (
@@ -69,7 +73,10 @@ const Contents = () => {
                     {data?.overview}
                   </span>
                 </div>
-                <div className="xl:w-[200px] xl:h-[15%] w-full h-[20%] justify-center flex items-end">
+                <div
+                  onClick={onClickTrailer}
+                  className="xl:w-[200px] xl:h-[15%] w-full h-[20%] justify-center flex items-end"
+                >
                   <div className="w-full h-auto  text-center xl:py-5  py-4 bg-red-500 rounded-md">
                     <span className="text-white font-bold text-sm xl:text-lg">
                       시청하기

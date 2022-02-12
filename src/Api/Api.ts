@@ -11,6 +11,11 @@ interface IMovie {
   vote_average: string;
 }
 
+interface ITrailer {
+  key: string;
+  site: string;
+}
+
 export interface IGetMoviesResult {
   results: IMovie[];
 }
@@ -25,6 +30,11 @@ export interface IGetMoviesDetail {
   runtime: number;
 }
 
+export interface IGetMoviesTrailer {
+  id: number;
+  results: ITrailer[];
+}
+
 export const getMovieUpcoming = async (number: number) => {
   const response = await fetch(
     `${BASE_URL}/movie/upcoming?api_key=${API_Key}&page=${number}`
@@ -36,6 +46,14 @@ export const getMovieUpcoming = async (number: number) => {
 export const getMovieDetail = async (moiveID: number) => {
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${moiveID}?api_key=${API_Key}`
+  );
+  const json = await response.json();
+  return json;
+};
+
+export const getMovieTrailer = async (moiveID: number) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${moiveID}/videos?api_key=${API_Key}`
   );
   const json = await response.json();
   return json;
