@@ -1,4 +1,4 @@
-const API_Key = process.env.REACT_APP_API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3"; // Base URL
 
 interface IMovie {
@@ -9,6 +9,13 @@ interface IMovie {
   overview: string;
   release_date: string;
   vote_average: string;
+}
+
+interface ITV {
+  id: number;
+  backdrop_path: string;
+  original_name: string;
+  poster_path: string;
 }
 
 interface ITrailer {
@@ -35,9 +42,14 @@ export interface IGetMoviesTrailer {
   results: ITrailer[];
 }
 
+export interface IGetTVResult {
+  page: number;
+  results: ITV[];
+}
+
 export const getMovieUpcoming = async (number: number) => {
   const response = await fetch(
-    `${BASE_URL}/movie/upcoming?api_key=${API_Key}&page=${number}`
+    `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&page=${number}`
   );
   const json = await response.json();
   return json;
@@ -45,7 +57,7 @@ export const getMovieUpcoming = async (number: number) => {
 
 export const getMovieDetail = async (moiveID: number) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${moiveID}?api_key=${API_Key}`
+    `https://api.themoviedb.org/3/movie/${moiveID}?api_key=${API_KEY}`
   );
   const json = await response.json();
   return json;
@@ -53,7 +65,47 @@ export const getMovieDetail = async (moiveID: number) => {
 
 export const getMovieTrailer = async (moiveID: number) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${moiveID}/videos?api_key=${API_Key}`
+    `https://api.themoviedb.org/3/movie/${moiveID}/videos?api_key=${API_KEY}`
+  );
+  const json = await response.json();
+  return json;
+};
+
+export const getUpcoming = async (number?: number) => {
+  const response = await fetch(
+    `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&page=${number}`
+  );
+  const json = await response.json();
+  return json;
+};
+
+export const getTv = async (number?: number) => {
+  const response = await fetch(
+    `${BASE_URL}/tv/popular?api_key=${API_KEY}&page=${number}`
+  );
+  const json = await response.json();
+  return json;
+};
+
+export const getTVDetail = async (tvId?: number) => {
+  const response = await fetch(
+    `${BASE_URL}/tv/${tvId}?api_key=${API_KEY}&language=ko-KR`
+  );
+  const json = await response.json();
+  return json;
+};
+
+export const getTvTrailer = async (tvId?: number) => {
+  const response = await fetch(
+    `${BASE_URL}/tv/${tvId}/videos?api_key=${API_KEY}`
+  );
+  const json = await response.json();
+  return json;
+};
+
+export const getSearch = async (query?: string) => {
+  const response = await fetch(
+    `${BASE_URL}/search/multi?api_key=${API_KEY}&query=${query}&page=1&include_adult=false`
   );
   const json = await response.json();
   return json;

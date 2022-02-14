@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ReactPlayer from "react-player";
-import Footer from "./Footer";
+import Footer from "../../styles/Footer";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
@@ -32,7 +32,7 @@ const Air = () => {
       <div className="w-full h-full relative top-20 overflow-hidden flex justify-center">
         <ReactPlayer
           url={ArrayBBogumi[BBogumi]}
-          volume={0.3}
+          volume={0.1}
           controls={false}
           playing={pause}
           muted={false}
@@ -53,7 +53,7 @@ const Air = () => {
       ></div>
       <div
         onClick={prev}
-        className="w-3 h-[90%] xl:w-10 absolute top-[5rem] left-0 bg-red-500 hover:bg-green-500 flex justify-center items-center"
+        className="w-3 h-[90%] xl:w-10 absolute top-[5rem] left-0 bg-red-500 hover:bg-green-500 flex xl:justify-center justify-start items-center"
       >
         <ArrowBackIosIcon />
       </div>

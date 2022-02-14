@@ -1,17 +1,17 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-import { getMovieUpcoming, IGetMoviesResult } from "../Api/Api";
-import { makeImagePath, NothingPoster } from "../Api/utils";
+import { getMovieUpcoming, IGetMoviesResult } from "../../Api/Api";
+import { makeImagePath, NothingPoster } from "../../Api/utils";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import Dot from "../styles/Dot";
+import Dot from "../../styles/Dot";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Footer from "./Footer";
+import Footer from "../../styles/Footer";
 
 export const rowVars = {
   start: {
@@ -36,7 +36,7 @@ const Home = () => {
   const navigate = useNavigate();
   const handleClick = (id: number) => {
     if (!mouseMoved) {
-      navigate(`/contents/${id}`);
+      navigate(`/contents/home/${id}`);
     }
   };
   const increaseIndex = () => {
@@ -125,7 +125,7 @@ const Home = () => {
                             {movie.title}
                           </span>
                         </div>
-                        <Link to={`/contents/${movie.id}`}>
+                        <Link to={`/contents/home/${movie.id}`}>
                           <div className="z-20 absolute top-[74%] right-[10%] bg-black/30 mt-5 py-1 px-4  sm:py-4 sm:px-10 border-2 border-solid  border-gray-400 hover:border-white rounded-md">
                             <span className="text-white">자세히보기</span>
                           </div>

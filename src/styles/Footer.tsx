@@ -1,11 +1,8 @@
 const Footer = () => {
   return (
     <div className="w-full h-[30vh] bg-black flex justify-center">
-      <div className="w-[93%] h-full ">
-        <div className="text-xs flex items-center space-x-3 mb-4 py-2 border-gray-800 border-b">
-          <span className="text-gray-500 font-semibold">공지사항</span>
-          <span className="text-gray-300">없어</span>
-        </div>
+      <div className="w-[95%] h-full ">
+        <div className="text-xs flex items-center space-x-3 mb-4 py-2 border-gray-800 border-b"></div>
         <div className="text-xs space-x-4 text-gray-300 mb-4">
           <span>고객센터</span>
           <span>이용약관</span>

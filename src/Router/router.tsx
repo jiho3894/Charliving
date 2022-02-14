@@ -1,11 +1,12 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
-import Air from "../Components/Air";
-import Movie from "../Components/Movie";
-import TV from "../Components/TV";
-import Contents from "../Components/Contents";
-import Home from "../Components/Home";
+import Air from "../Components/Air/Air";
+import TV from "../Components/TV/TV";
+import Home from "../Components/Home/Home";
 import Header from "./Header";
-import Trailer from "../Components/Trailer";
+import HomeContents from "../Components/Home/HomeContents";
+import TVContents from "../Components/TV/TVContents";
+import HomeTrailer from "../Components/Home/HomeTrailer";
+import TVTrailer from "../Components/TV/TVTrailer";
 
 const Router = () => {
   return (
@@ -15,9 +16,10 @@ const Router = () => {
         <Route path="/" element={<Home />} />
         <Route path="/air" element={<Air />} />
         <Route path="/tV" element={<TV />} />
-        <Route path="/movie" element={<Movie />} />
-        <Route path="/contents/:id" element={<Contents />} />
-        <Route path="/contents/trailer/:id" element={<Trailer />} />
+        <Route path="/contents/home/:id" element={<HomeContents />} />
+        <Route path="/contents/tv/:id" element={<TVContents />} />
+        <Route path="/contents/home/trailer/:id" element={<HomeTrailer />} />
+        <Route path="/contents/tv/trailer/:id" element={<TVTrailer />} />
       </Routes>
     </HashRouter>
   );

@@ -13,5 +13,11 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 50px;
   }
 }
-
+body {
+  background-color: black;
+  -webkit-user-select:none; 
+  -moz-user-select:none; 
+  -ms-user-select:none; 
+  user-select:none;
+}
 `;
