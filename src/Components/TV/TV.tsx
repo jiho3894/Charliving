@@ -15,7 +15,7 @@ const TV = () => {
       ) : (
         <React.Fragment>
           <div className="w-full h-full relative flex justify-center items-center ">
-            <div className="w-full h-[95%] mt-20 grid grid-cols-3 xl:grid-cols-5 justify-center xl:gap-10">
+            <div className="w-full h-[95%] mt-12 xl:mt-20 grid grid-cols-3 xl:grid-cols-5 justify-center xl:gap-10">
               {data?.results.map((tv) => {
                 return (
                   <Link to={`/contents/tv/${tv.id}`} className="mt-5 w-[100px] h-[170px]  xl:w-[220px] xl:h-[350px] flex flex-col justify-center m-auto items-center ">

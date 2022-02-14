@@ -23,11 +23,23 @@ interface ITrailer {
   site: string;
 }
 
+interface ISearch {
+  backdrop_path: string;
+  id: number;
+  original_title: string;
+  poster_path: string;
+  first_air_date: string;
+  vote_average: number;
+  media_type: string;
+  name: string;
+}
+
 export interface IGetMoviesResult {
   results: IMovie[];
 }
 
 export interface IGetMoviesDetail {
+  original_name: string;
   adult: boolean;
   backdrop_path: string;
   id: number;
@@ -45,6 +57,11 @@ export interface IGetMoviesTrailer {
 export interface IGetTVResult {
   page: number;
   results: ITV[];
+}
+
+export interface IGetSearchResult {
+  results: ISearch[];
+  total_results: number;
 }
 
 export const getMovieUpcoming = async (number: number) => {
@@ -105,7 +122,7 @@ export const getTvTrailer = async (tvId?: number) => {
 
 export const getSearch = async (query?: string) => {
   const response = await fetch(
-    `${BASE_URL}/search/multi?api_key=${API_KEY}&query=${query}&page=1&include_adult=false`
+    `${BASE_URL}/search/tv?api_key=${API_KEY}&query=${query}&page=1&include_adult=false`
   );
   const json = await response.json();
   return json;

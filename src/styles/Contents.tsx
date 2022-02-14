@@ -26,7 +26,7 @@ const Contents = ({ Loading, Data, Trailer }: IProps) => {
               )})`,
             }}
           ></main>
-          <main className="flex justify-center absolute top-20 z-10 w-full h-[70%] ">
+          <main className="flex justify-center absolute top-12 xl:top-20 z-10 w-full h-[70%] ">
             <div className="border-b-2 pb-10 border-solid border-gray-500 w-[95%] xl:h-[70vh] h-full flex flex-col xl:flex-row-reverse  items-center">
               <div
                 className="w-screen xl:w-1/4 xl:ml-[50vh] xl:h-3/4 relative h-2/5 bg-cover bg-center xl:shadow-2xl rounded-lg"
@@ -41,7 +41,9 @@ const Contents = ({ Loading, Data, Trailer }: IProps) => {
               <div className="w-full xl:w-1/2 xl:h-[80%] h-3/5 flex flex-col justify-center">
                 <div className="w-full h-[20%] flex items-center">
                   <span className="text-white font-bold text-3xl xl:text-6xl">
-                    {Data?.original_title}
+                    {Data?.original_title === undefined
+                      ? Data?.original_name
+                      : Data.original_title}
                   </span>
                 </div>
                 <div className="w-full h-[10%]  flex items-center ">

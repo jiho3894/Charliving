@@ -29,7 +29,7 @@ const Air = () => {
   };
   return (
     <div className="w-full h-screen bg-black">
-      <div className="w-full h-full relative top-20 overflow-hidden flex justify-center">
+      <div className="w-full h-full relative top-12 xl:top-20 overflow-hidden flex justify-center">
         <ReactPlayer
           url={ArrayBBogumi[BBogumi]}
           volume={0.1}
@@ -43,7 +43,7 @@ const Air = () => {
       </div>
       <div
         onClick={next}
-        className="w-3 h-[90%] xl:w-10 absolute top-[5rem] right-0 bg-red-500 hover:bg-green-500 flex justify-center items-center"
+        className="w-3 h-[90%] xl:w-10 absolute top-12 xl:top-20 right-0 bg-red-500 hover:bg-green-500 flex justify-center items-center"
       >
         <ArrowForwardIosIcon />
       </div>
@@ -53,7 +53,7 @@ const Air = () => {
       ></div>
       <div
         onClick={prev}
-        className="w-3 h-[90%] xl:w-10 absolute top-[5rem] left-0 bg-red-500 hover:bg-green-500 flex xl:justify-center justify-start items-center"
+        className="w-3 h-[90%] xl:w-10 absolute top-12 xl:top-20 left-0 bg-red-500 hover:bg-green-500 flex xl:justify-center justify-start items-center"
       >
         <ArrowBackIosIcon />
       </div>

@@ -19,8 +19,9 @@ const Trailer = ({ Loading, Data }: IProps) => {
           <div className="w-full h-full relative top-20 overflow-hidden flex justify-center">
             <ReactPlayer
               url={
-                makeTrailerPath(Data?.results[0].key || "") ||
-                "https://www.youtube.com/watch?v=NeKdhpmVI64"
+                Data?.results[0] === undefined
+                  ? "https://www.youtube.com/watch?v=NeKdhpmVI64"
+                  : makeTrailerPath(Data?.results[0].key || "")
               }
               volume={0.3}
               controls={false}

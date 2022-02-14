@@ -4,9 +4,10 @@ import { getTvTrailer, IGetMoviesTrailer } from "../../Api/Api";
 import Trailer from "../../styles/Trailer";
 
 const TVTrailer = () => {
-  const tailerID = useParams();
+  const trailerID = useParams();
+  console.log(trailerID);
   const { isLoading, data } = useQuery<IGetMoviesTrailer>("Trailer", () =>
-    getTvTrailer(Number(tailerID.id))
+    getTvTrailer(Number(trailerID.id))
   );
   return <Trailer Loading={isLoading} Data={data} />;
 };

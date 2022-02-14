@@ -162,7 +162,7 @@ const Home = () => {
                             ? NothingPoster
                             : movie.poster_path
                         )}
-                        whileHover={{ y: -10, transition: { delay: 0.1 } }}
+                        whileHover={{ y: -10 }}
                       />
                     </div>
                   );

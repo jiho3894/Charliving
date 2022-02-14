@@ -7,6 +7,7 @@ import HomeContents from "../Components/Home/HomeContents";
 import TVContents from "../Components/TV/TVContents";
 import HomeTrailer from "../Components/Home/HomeTrailer";
 import TVTrailer from "../Components/TV/TVTrailer";
+import Search from "../Components/Search/Search";
 
 const Router = () => {
   return (
@@ -20,6 +21,7 @@ const Router = () => {
         <Route path="/contents/tv/:id" element={<TVContents />} />
         <Route path="/contents/home/trailer/:id" element={<HomeTrailer />} />
         <Route path="/contents/tv/trailer/:id" element={<TVTrailer />} />
+        <Route path="/search/*" element={<Search />} />
       </Routes>
     </HashRouter>
   );
