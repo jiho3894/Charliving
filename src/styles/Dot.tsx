@@ -13,8 +13,8 @@ export default function Dot({ index, onClick }: IProps) {
             type="button"
             value={`${num}`}
             onClick={onClick}
-            className={`bg-gray-500 opacity-100 cursor-pointer sm:w-4 w-3 sm:h-4 h-3 m-1 relative z-1 rounded-full text-transparent ${
-              index === num ? "bg-white" : ""
+            className={` opacity-100 cursor-pointer sm:w-4 w-3 sm:h-4 h-3 m-1 relative z-1 rounded-full text-transparent ${
+              index === num ? "bg-white" : "bg-gray-500"
             }`}
           />
         );

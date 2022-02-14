@@ -31,6 +31,7 @@ const Home = () => {
   const [mouseMoved, setMouseMoved] = useState(false);
   const onClick = (e: React.MouseEvent<HTMLInputElement>) => {
     let num = Number((e.currentTarget as HTMLInputElement).value);
+    console.log(num);
     setIndex(num);
   };
   const navigate = useNavigate();
