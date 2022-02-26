@@ -126,6 +126,7 @@ const Header = () => {
               {...register("query", { required: true, minLength: 2 })}
               placeholder="검색어를 입력해주세요."
               inputProps={ariaLabel}
+              autoFocus
             />
             <button>
               <SearchIcon
